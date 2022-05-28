@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+
+
+<body>
+    <div class="inline">
+        <a href="home">
+            <h1>Home</h1>
+        </a>
+    </div>
+    <div class="inline">
+        <a href="login">
+            <h1>Login</h1>
+        </a>
+    </div>
+    <form action="/signup" method="post">
+
+        First Name: <input type="text" name="first_name" required>
+        <br>
+        <br>
+        Middle Name: <input type="text" name="middle_name">
+        <br>
+        <br>
+        Sur Name: <input type="text" name="sur_name">
+        <br>
+        <br>
+        Date of Birth: <input type="date" name="date_of_birth" required>
+        <br>
+        <br>
+        Gender:<input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female">
+        Female <input type="radio" name="gender" value="other"> Other <input type="radio" name="gender" value=""
+            checked> Prefer not to tell
+        <br>
+        <br>
+        Email: <input type="email" name="email" required>
+        <br>
+        <br>
+        phone: <input type="tel" name="phone">
+        <br>
+        <br>
+        Are you a medical practitioner?
+        <br>
+        Yes <input type="radio" name="is_doctor" id="if_doctor" onclick="if_doc_function()" value="True">
+        <br>
+        No <input type="radio" name="is_doctor" id="if_not_doctor" onclick="if_doc_function()" value="False" checked>
+        <br>
+        <br>
+        <div id="med_details">
+            Please provide your medical licence details for verification: <input type="text" name="medical_license"
+                id="medical_license">
+            <br>
+            <br>
+            Please select your field of specialisation if any:
+            <select name="doc_speciality" id="doc_speciality">
+                <option value=""></option>
+                <option value=" Accident and emergency medicine"> Accident and emergency medicine</option>
+                <option value=" Allergist"> Allergist</option>
+                <option value=" Anaesthetics"> Anaesthetics</option>
+                <option value=" Cardiology"> Cardiology</option>
+                <option value=" Child psychiatry"> Child psychiatry</option>
+                <option value=" Clinical biology ">Clinical biology</option>
+                <option value=" Clinical chemistry"> Clinical chemistry</option>
+                <option value=" Clinical microbiology ">Clinical microbiology</option>
+                <option value=" Clinical neurophysiology"> Clinical neurophysiology</option>
+                <option value=" Craniofacial surgery"> Craniofacial surgery</option>
+                <option value=" Dermatology"> Dermatology</option>
+                <option value=" Endocrinology"> Endocrinology</option>
+                <option value=" Family and General Medicine"> Family and General Medicine</option>
+                <option value=" Gastroenterologic surgery"> Gastroenterologic surgery</option>
+                <option value=" Gastroenterology"> Gastroenterology</option>
+                <option value=" General Practice"> General Practice</option>
+                <option value=" General surgery"> General surgery</option>
+                <option value=" Geriatrics"> Geriatrics</option>
+                <option value=" Hematology"> Hematology</option>
+                <option value=" Immunology"> Immunology</option>
+                <option value=" Infectious diseases"> Infectious diseases</option>
+                <option value=" Internal medicine"> Internal medicine</option>
+                <option value=" Laboratory medicine"> Laboratory medicine</option>
+                <option value=" Nephrology"> Nephrology</option>
+                <option value=" Neurology"> Neurology</option>
+                <option value=" Neuropsychiatry"> Neuropsychiatry</option>
+                <option value=" Neurosurgery"> Neurosurgery</option>
+                <option value=" Nuclear medicine"> Nuclear medicine</option>
+                <option value=" Obstetrics and gynaecology"> Obstetrics and gynaecology</option>
+                <option value=" Occupational medicine"> Occupational medicine</option>
+                <option value=" Oncology"> Oncology</option>
+                <option value=" Ophthalmology"> Ophthalmology</option>
+                <option value=" Oral and maxillofacial surgery"> Oral and maxillofacial surgery</option>
+                <option value=" Orthopaedics"> Orthopaedics</option>
+                <option value=" Otorhinolaryngology"> Otorhinolaryngology</option>
+                <option value=" Paediatric surgery"> Paediatric surgery</option>
+                <option value=" Paediatrics"> Paediatrics</option>
+                <option value=" Pathology"> Pathology</option>
+                <option value=" Pharmacology"> Pharmacology</option>
+                <option value=" Physical medicine and rehabilitation"> Physical medicine and rehabilitation</option>
+                <option value=" Plastic surgery"> Plastic surgery</option>
+                <option value=" Podiatric surgery"> Podiatric surgery</option>
+                <option value=" Preventive medicine"> Preventive medicine</option>
+                <option value=" Psychiatry"> Psychiatry</option>
+                <option value=" Public health"> Public health</option>
+                <option value=" Radiation Oncology"> Radiation Oncology</option>
+                <option value=" Radiology"> Radiology</option>
+                <option value=" Respiratory medicine"> Respiratory medicine</option>
+                <option value=" Rheumatology"> Rheumatology</option>
+                <option value=" Stomatology"> Stomatology</option>
+                <option value=" Thoracic surgery"> Thoracic surgery</option>
+                <option value=" Urology"> Urology</option>
+                <option value=" Vascular surgery"> Vascular surgery </option>
+                <option value=" Venereology"> Venereology </option>
+
+            </select>
+        </div>
+
+        <br>
+        Please create a password
+        <br>
+        <input type="password" placeholder="********" name="password" id="password" onchange="comparing_passwords()"
+            required>
+        <br>
+        Confirm password
+        <br>
+        <input type="password" placeholder="********" id="confirm_password" onkeyup="comparing_passwords()" required>
+        <br>
+        <div id="submit_button">
+            <input type="submit" value="submit">
+        </div>
+    </form>
+
+
+    <style>
+        .med_post_div {
+            border: 3px;
+            border-style: solid;
+            border-color: rgb(79, 141, 150);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .med_post_text_div {
+            border: 3px;
+            border-style: solid;
+            border-color: rgb(79, 141, 150);
+            border-radius: 10px;
+        }
+
+        .inline {
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+        a {
+            color: rgb(223, 62, 156);
+            text-decoration: none;
+            /* no underline */
+        }
+    </style>
+
+    <script>
+
+        var if_doctor = document.getElementById("if_doctor");
+        var med_details = document.getElementById("med_details");
+        var submit_button = document.getElementById("submit_button");
+
+        med_details.style.display = "none";
+        submit_button.style.display = "none";
+
+
+        function if_doc_function() {
+            if (if_doctor.checked == true) {
+                med_details.style.display = "block";
+
+            }
+            else {
+                med_details.style.display = "none";
+
+            }
+        };
+
+        var password = document.getElementById("password");
+        var confirm_password = document.getElementById("confirm_password");
+
+        function comparing_passwords() {
+            console.log('hello');
+            if (password.value == confirm_password.value) {
+                submit_button.style.display = "block";
+            }
+            else {
+                submit_button.style.display = "none";
+            }
+        };
+
+
+    </script>
+
+</body>
+
+</html>

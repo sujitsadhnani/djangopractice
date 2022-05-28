@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Reset</title>
+</head>
+
+<body>
+  <div class="inline">
+    <a href="home">
+      <h1>Home</h1>
+    </a>
+  </div>
+
+  <div class="inline">
+    <a href="login">
+      <h1>Login</h1>
+    </a>
+  </div>
+  <div class="inline">
+    <a href="signup">
+      <h1>Signup</h1>
+    </a>
+  </div>
+  <form action="/forgot_pass" method="post">
+
+    {% if error_message %}
+    <div class="alerting_error" role="alert">
+      {{error_message}}
+    </div>
+    {% endif %}
+
+    <br>
+    <br>
+    {% if email_already %}
+    Email: <input type="email" name="email" value={{email_already}} required>
+
+    {% else %}
+    Email: <input type="email" name="email" required>
+
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Send the email to reset password">
+  </form>
+
+  <style>
+    .med_post_div {
+      border: 3px;
+      border-style: solid;
+      border-color: rgb(79, 141, 150);
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .med_post_text_div {
+      border: 3px;
+      border-style: solid;
+      border-color: rgb(79, 141, 150);
+      border-radius: 10px;
+    }
+
+    .inline {
+      display: inline-block;
+      margin: 10px;
+
+    }
+
+    a {
+      color: rgb(223, 62, 156);
+      text-decoration: none;
+      /* no underline */
+    }
+  </style>
+
+</body>
+
+</html>

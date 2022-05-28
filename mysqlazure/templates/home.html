@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="robots" content="INDEX, FOLLOW">
+  <title>What does the Doc. say?</title>
+</head>
+
+<body>
+  {% if email %}
+  <div>
+    <h1>welcome {{ email }}</h1>
+  </div>
+
+
+
+  <div class="inline">
+    <a href="logout">
+      <h1>Logout</h1>
+    </a>
+  </div>
+  {% else %}
+
+  <div class="inline">
+    <a href="login">
+      <h1>Login</h1>
+    </a>
+  </div>
+
+  <div class="inline">
+    <a href="signup">
+      <h1>Signup</h1>
+    </a>
+  </div>
+
+  {% endif %}
+
+  <div class="inline">
+    <a href="home">
+      <h1>Home</h1>
+    </a>
+  </div>
+
+  <div class="inline">
+    <a href="best_docs">
+      <h1>Best Doctors</h1>
+    </a>
+  </div>
+
+  <div class="inline">
+
+    {% if is_doctor_verified %}
+    <a href="medposting">
+      <h1>Create a new post</h1>
+    </a>
+    {% endif %}
+  </div>
+
+
+  {% if display_med_posts %}
+  <div id="showing_best_med_posts">
+
+    {% if med_post_1_text %}
+    <div class="med_post_div">
+      <div class="med_post_text_div">{{med_post_1_text}}</div>
+      posted by {{med_post_1_user}}
+      liked by {{med_post_1_doc_likes}} doctors and {{med_post_1_likes}} other users
+      <br>
+      {% if email %}
+
+      <form action="/like" method="post">
+
+
+        <input type="hidden" name="med_post_like_id" value="{{med_post_1_id}}">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="submit" value="Like">
+      </form>
+      {% endif %}
+
+    </div>
+    {% endif %}
+    {% if med_post_2_text %}
+    <div class="med_post_div">
+      <div class="med_post_text_div">{{med_post_2_text}}</div>
+      posted by {{med_post_2_user}}
+      liked by {{med_post_2_doc_likes}} doctors and {{med_post_2_likes}} other users
+      <br>
+      {% if email %}
+
+      <form action="/like" method="post">
+
+
+        <input type="hidden" name="med_post_like_id" value="{{med_post_2_id}}">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="submit" value="Like">
+      </form>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if med_post_3_text %}
+    <div class="med_post_div">
+      <div class="med_post_text_div">{{med_post_3_text}}</div>
+      posted by {{med_post_3_user}}
+      liked by {{med_post_3_doc_likes}} doctors and {{med_post_3_likes}} other users
+      <br>
+      {% if email %}
+
+      <form action="/like" method="post">
+
+
+        <input type="hidden" name="med_post_like_id" value="{{med_post_3_id}}">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="submit" value="Like">
+      </form>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if med_post_4_text %}
+    <div class="med_post_div">
+      <div class="med_post_text_div">{{med_post_4_text}}</div>
+      posted by {{med_post_4_user}}
+      liked by {{med_post_4_doc_likes}} doctors and {{med_post_4_likes}} other users
+      <br>
+      {% if email %}
+
+      <form action="/like" method="post">
+
+
+        <input type="hidden" name="med_post_like_id" value="{{med_post_4_id}}">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="submit" value="Like">
+      </form>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if med_post_5_text %}
+    <div class="med_post_div">
+      <div class="med_post_text_div">{{med_post_5_text}}</div>
+      posted by {{med_post_5_user}}
+      liked by {{med_post_5_doc_likes}} doctors and {{med_post_5_likes}} other users
+      <br>
+      {% if email %}
+
+      <form action="/like" method="post">
+
+
+        <input type="hidden" name="med_post_like_id" value="{{med_post_5_id}}">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="submit" value="Like">
+      </form>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if page_prev %}
+    <form action="/home" method="post">
+
+
+      <input type="hidden" name="page_number" value="{{page_prev}}">
+      <input type="submit" value="Previous">
+    </form>
+    {% endif %}
+    {% if page_next %}
+    <form action="/home" method="post">
+
+
+      <input type="hidden" name="page_number" value="{{page_next}}">
+      <input type="submit" value="Next">
+    </form>
+    {% endif %}
+
+  </div>
+  {% endif %}
+
+  <style>
+    .med_post_div {
+      border: 3px;
+      border-style: solid;
+      border-color: rgb(79, 141, 150);
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .med_post_text_div {
+      border: 3px;
+      border-style: solid;
+      border-color: rgb(79, 141, 150);
+      border-radius: 10px;
+    }
+
+    .inline {
+      display: inline-block;
+      margin: 10px;
+
+    }
+
+    a {
+      color: rgb(223, 62, 156);
+      text-decoration: none;
+      /* no underline */
+    }
+  </style>
+
+</body>
+
+</html>

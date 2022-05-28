@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+</head>
+
+<body>
+    <div class="inline">
+        <a href="home">
+            <h1>Home</h1>
+        </a>
+    </div>
+
+    <div class="inline">
+        <a href="login">
+            <h1>Login</h1>
+        </a>
+    </div>
+    <div class="inline">
+        <a href="signup">
+            <h1>Signup</h1>
+        </a>
+    </div>
+    <form action="/reset_pass" method="post">
+
+        {% if error_message %}
+        <div class="alerting_error" role="alert">
+            {{error_message}}
+        </div>
+        {% endif %}
+
+        <br>
+        <br>
+        {% if email_already %}
+        Email: <input type="email" name="email" value={{email_already}} required>
+
+        {% else %}
+        Email: <input type="email" name="email" required>
+
+        {% endif %}
+        <br>
+        <br>
+        Please provide the OTP: <input type="number" name="reset_otp">
+        <br>
+        <br>
+        Please create a password
+        <br>
+        <input type="password" placeholder="********" name="password" id="password" onchange="comparing_passwords()"
+            required>
+        <br>
+        Confirm password
+        <br>
+        <input type="password" placeholder="********" id="confirm_password" onkeyup="comparing_passwords()" required>
+        <br>
+        <div id="submit_button">
+            <input type="submit" value="submit">
+        </div>
+        <br>
+        <br>
+    </form>
+
+    <style>
+        .med_post_div {
+            border: 3px;
+            border-style: solid;
+            border-color: rgb(79, 141, 150);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .med_post_text_div {
+            border: 3px;
+            border-style: solid;
+            border-color: rgb(79, 141, 150);
+            border-radius: 10px;
+        }
+
+        .inline {
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+        a {
+            color: rgb(223, 62, 156);
+            text-decoration: none;
+            /* no underline */
+        }
+    </style>
+
+    <script>
+        var submit_button = document.getElementById("submit_button");
+        submit_button.style.display = "none";
+
+        var password = document.getElementById("password");
+        var confirm_password = document.getElementById("confirm_password");
+
+        function comparing_passwords() {
+            console.log('hello');
+            if (password.value == confirm_password.value) {
+                submit_button.style.display = "block";
+            }
+            else {
+                submit_button.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+
+</html>

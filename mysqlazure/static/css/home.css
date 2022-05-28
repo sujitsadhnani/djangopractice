@@ -1,0 +1,26 @@
+.med_post_div {
+    border: 3px;
+    border-style: solid;
+    border-color: rgb(79, 141, 150);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.med_post_text_div {
+    border: 3px;
+    border-style: solid;
+    border-color: rgb(79, 141, 150);
+    border-radius: 10px;
+  }
+
+  .inline {
+    display: inline-block;
+    margin: 10px;
+    
+  }
+
+  a {
+    color: rgb(223, 62, 156);
+    text-decoration: none; /* no underline */
+  }
